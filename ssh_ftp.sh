@@ -34,9 +34,9 @@ echo "$USERNAME" | sudo tee -a /etc/vsftpd.userlist
 cd /home/$USERNAME
 mkdir ftp
 mkdir ftp/upload
-sudo chown nobody:nogroup /home/user1/ftp 
-sudo chmod a-w /home/user1/ftp 
-sudo chown user1:user1 /home/user1/ftp/upload
+sudo chown nobody:nogroup /home/$USERNAME/ftp 
+sudo chmod a-w /home/$USERNAME/ftp 
+sudo chown user1:user1 /home/$USERNAME/ftp/upload
 echo "write_enable=YES" | sudo tee -a /etc/vsftpd.conf
 
 echo "chroot_local_user=YES" | sudo tee -a /etc/vsftpd.conf
