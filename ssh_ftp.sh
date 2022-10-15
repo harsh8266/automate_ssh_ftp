@@ -20,13 +20,23 @@ sleep 4
 sudo adduser shark
 
 echo "AllowUsers shark" | sudo tee -a /etc/ssh/sshd_config
+
+
 echo "installing proftpd"
 sleep 1
 
 
 sudo apt install proftpd
-sudo systemctl restart ssh
-sleep 3
 
+sleep 4
+echo "DefaultRoot ~" | sudo tee -a /etc/proftpd/proftpd.conf
+echo "User shark" | sudo tee -a /etc/proftpd/proftpd.conf
+echo "Group shark" | sudo tee -a /etc/proftpd/proftpd.conf
+
+
+
+sudo systemctl restart ssh.service
+sleep 3
+sudo systemctl restart proftpd.service
 
 echo "Done!!!!!!!!!!!!!!!!!"
